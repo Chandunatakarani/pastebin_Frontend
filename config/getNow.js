@@ -1,0 +1,7 @@
+export function getNow(req) {
+  // Check for test headers (optional)
+  if (process.env.TEST_MODE === "1" && req.headers["x-test-now-ms"]) {
+    return new Date(Number(req.headers["x-test-now-ms"]));
+  }
+  return new Date();
+}
